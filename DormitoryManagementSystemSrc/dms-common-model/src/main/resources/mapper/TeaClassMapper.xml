@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.TeaClassMapper">
+    <select id="selectUserIdByClassId" parameterType="String" resultType="String">
+        select user_id from ctrl_tea_class where class_id=#{classId}
+    </select>
+    <select id="selectClassIdByUserId" parameterType="String" resultType="String">
+        select class_id from ctrl_tea_class where user_id=#{userId}
+    </select>
+    <insert id="insertRelation" parameterType="map">
+        insert into ctrl_tea_class values (#{id},#{userId},#{classId})
+    </insert>
+</mapper>

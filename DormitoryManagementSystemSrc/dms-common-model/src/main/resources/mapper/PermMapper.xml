@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.PermMapper">
+    <resultMap id="permDomain" type="PermDomain">
+        <result property="permId" column="perm_id"/>
+        <result property="permName" column="perm_name"/>
+        <result property="permDesc" column="perm_desc"/>
+        <result property="permCode" column="perm_code"/>
+        <result property="permType" column="perm_type"/>
+        <result property="parPerm" column="par_perm"/>
+    </resultMap>
+    <select id="selectById" parameterType="String" resultMap="permDomain">
+        select * from sys_perm where perm_id=#{permId}
+    </select>
+    <update id="updateById" parameterType="map">
+        update sys_perm
+        <set>
+            <if test="permName != null">perm_name=#{permName},</if>
+            <if test="permDesc != null">perm_desc=#{permDesc},</if>
+            <if test="permCode != null">perm_code=#{permCode},</if>
+            <if test="permType != null">perm_type=#{permType},</if>
+            <if test="parPerm != null">par_perm=#{parPerm},</if>
+        </set>
+        where perm_id=#{permId}
+    </update>
+    <insert id="insertPerm" parameterType="PermDomain">
+        insert into sys_perm values (#{permId},#{permName},#{permDesc},#{permCode},#{permType},#{parPerm})
+    </insert>
+    <delete id="deleteById" parameterType="String">
+        delete from sys_perm where perm_id=#{permId}
+    </delete>
+</mapper>

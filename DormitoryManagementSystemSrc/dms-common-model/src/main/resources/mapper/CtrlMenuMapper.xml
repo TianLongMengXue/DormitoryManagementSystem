@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.CtrlMenuMapper">
+    <resultMap id="ctrlMenuDomain" type="CtrlMenuDomain">
+        <result property="permId" column="perm_id"/>
+        <result property="menuIcon" column="menu_icon"/>
+        <result property="menuOrder" column="menu_order"/>
+        <result property="menuPath" column="menu_path"/>
+    </resultMap>
+    <select id="selectById" parameterType="String" resultMap="ctrlMenuDomain">
+        select * from sys_menu where perm_id=#{permId}
+    </select>
+    <update id="updateById" parameterType="map">
+        update sys_menu
+        <set>
+            <if test="menuIcon != null">menu_type=#{menuIcon},</if>
+            <if test="menuOrder != null">menu_order=#{menuOrder},</if>
+            <if test="menuPath != null">menu_path=#{menuPath},</if>
+        </set>
+        where perm_id=#{permId}
+    </update>
+    <insert id="insertMenu" parameterType="CtrlMenuDomain">
+        insert into sys_menu values (#{permId},#{menuIcon},#{menuOrder},#{menuPath})
+    </insert>
+    <delete id="deleteById" parameterType="String">
+        delete from sys_menu where perm_id=#{permId}
+    </delete>
+</mapper>

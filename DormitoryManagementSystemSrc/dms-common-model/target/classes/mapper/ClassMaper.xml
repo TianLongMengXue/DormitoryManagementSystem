@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.ClassMapper">
+    <resultMap id="class" type="ClassDomain">
+        <result property="classId" column="class_id" />
+        <result property="className" column="class_name" />
+    </resultMap>
+    <select id="selectNameById" parameterType="String" resultType="String">
+        select class_name from ctrl_class where class_id=#{classId}
+    </select>
+    <insert id="insertClass" parameterType="ClassDomain">
+        insert into ctrl_class values(#{classId},#{className})
+    </insert>
+</mapper>

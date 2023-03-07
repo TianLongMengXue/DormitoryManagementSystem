@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.HomeMenuMapper">
+    <resultMap id="homeMenuDomain" type="HomeMenuDomain">
+        <result property="menuId" column="menu_id"/>
+        <result property="menuName" column="menu_name"/>
+    </resultMap>
+    <select id="selectAll" resultMap="homeMenuDomain">
+        select * from home_menu
+    </select>
+    <insert id="insertHomeMenu" parameterType="HomeMenuDomain">
+        insert into home_menu values(#{menuId},#{menuName})
+    </insert>
+    <delete id="deleteHomeMenu" parameterType="int">
+        delete from home_menu where menu_id=#{menuId}
+    </delete>
+</mapper>

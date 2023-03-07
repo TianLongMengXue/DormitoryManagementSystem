@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.CivilColNameMapper">
+    <resultMap id="recordName" type="com.e3e4e20.common.entity.home.ArticleDetailRecordName">
+        <result property="label" column="record_name"/>
+        <result property="value" column="col_name"/>
+    </resultMap>
+    <select id="selectColName" resultMap="recordName">
+        select col_name,record_name from result_civil_col order by col_order
+    </select>
+</mapper>

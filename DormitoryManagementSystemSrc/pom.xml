@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.e3e4e20</groupId>
+    <artifactId>DormitoryManagementSystem</artifactId>
+    <version>1.0.0</version>
+    <name>DormitoryManagementSystem</name>
+    <description>Dormitory Management System of College Students</description>
+    <packaging>pom</packaging><!-- 指定父工程的打包方式 -->
+
+    <!-- 注册子模块 -->
+    <modules>
+        <!-- dms-common模块约定只存放公共的响应类，工具类，常量类、异常类、实体类等形式和内容共用且固定 -->
+        <module>dms-common</module>
+        <!-- dms-common-model模块约定存放各个启动模块的公共controller、service、mapper -->
+        <module>dms-common-model</module>
+        <!-- dms-system模块约定实现用户的认证、授权功能 -->
+        <module>dms-system</module>
+        <!-- dms-home模块约定存放首页功能模块 -->
+        <module>dms-home</module>
+        <!-- dms-ctrl模块约定防止控制台页面功能模块 -->
+        <module>dms-ctrl</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

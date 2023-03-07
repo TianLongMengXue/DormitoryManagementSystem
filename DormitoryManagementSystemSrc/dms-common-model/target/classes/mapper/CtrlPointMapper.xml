@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.CtrlPointMapper">
+    <resultMap id="ctrlPointDomain" type="CtrlPointDomain">
+        <result property="permId" column="perm_id"/>
+        <result property="pointStyle" column="point_style"/>
+        <result property="pointIcon" column="point_icon"/>
+        <result property="pointStatus" column="point_status"/>
+    </resultMap>
+    <select id="selectById" parameterType="String" resultMap="ctrlPointDomain">
+        select * from sys_point where perm_id=#{permId}
+    </select>
+    <update id="updateById" parameterType="map">
+        update sys_point
+        <set>
+            <if test="pointStyle != null">point_style=#{pointStyle},</if>
+            <if test="pointIcon != null">point_icon=#{pointIcon},</if>
+            <if test="pointStatus != null">point_status=#{pointStatus},</if>
+        </set>
+        where perm_id=#{permId}
+    </update>
+    <insert id="insertPoint" parameterType="CtrlPointDomain">
+        insert into sys_point (perm_id,point_style,point_icon,point_status) values
+        (#{permId},#{pointStyle},#{pointIcon},#{pointStatus})
+    </insert>
+    <delete id="deleteById" parameterType="String">
+        delete from sys_point where perm_id=#{permId}
+    </delete>
+</mapper>

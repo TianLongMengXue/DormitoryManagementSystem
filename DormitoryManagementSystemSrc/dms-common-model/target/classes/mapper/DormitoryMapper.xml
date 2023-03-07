@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.DormitoryMapper">
+    <resultMap id="dor" type="DormitoryDomain">
+        <result property="dorId" column="dor_id"/>
+        <result property="buildNum" column="build_num"/>
+        <result property="dorNum" column="dor_num"/>
+    </resultMap>
+    <select id="selectById" resultMap="dor" parameterType="String">
+        select * from ctrl_dor where dor_id=#{dorId}
+    </select>
+    <insert id="insertRelation" parameterType="DormitoryDomain">
+        insert into ctrl_dor values(#{dorId},#{buildNum},#{dorNum})
+    </insert>
+</mapper>

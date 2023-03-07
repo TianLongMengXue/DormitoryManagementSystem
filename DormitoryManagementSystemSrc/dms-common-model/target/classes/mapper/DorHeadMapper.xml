@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.DorHeadMapper">
+    <select id="selectUserIdByDorId" parameterType="String" resultType="String">
+        select user_id from ctrl_dor_head where dor_id=#{dorId}
+    </select>
+    <select id="selectDorIdByUserId" parameterType="String" resultType="String">
+        select dor_id from ctrl_dor_head where user_id=#{userId}
+    </select>
+    <insert id="insertRelation" parameterType="map">
+        insert into ctrl_dor_head values (#{id},#{userId},#{dorId})
+    </insert>
+</mapper>

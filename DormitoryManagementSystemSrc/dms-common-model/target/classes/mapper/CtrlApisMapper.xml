@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.CtrlApisMapper">
+    <resultMap id="ctrlApisDomain" type="CtrlApisDomain">
+        <result property="permId" column="perm_id"/>
+        <result property="apiMethod" column="api_method"/>
+        <result property="apiURL" column="api_url"/>
+    </resultMap>
+    <select id="selectById" parameterType="String" resultMap="ctrlApisDomain">
+        select * from sys_apis where perm_id=#{permId}
+    </select>
+    <update id="updateById" parameterType="map">
+        update sys_apis
+        <set>
+            <if test="apiMethod != null">menu_method=#{apiMethod},</if>
+            <if test="apiURL != null">menu_url=#{apiURL},</if>
+        </set>
+        where perm_id=#{permId}
+    </update>
+    <insert id="insertApi" parameterType="CtrlApisDomain">
+        insert into sys_apis values (#{permId},#{apiMethod},#{apiURL})
+    </insert>
+    <delete id="deleteById" parameterType="String">
+        delete from sys_apis where perm_id=#{permId}
+    </delete>
+</mapper>

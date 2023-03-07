@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.LoginTimeMapper">
+    <resultMap id="loginTimeDomain" type="LoginTimeDomain">
+        <result property="userId" column="user_id"/>
+        <result property="loginTime" column="login_time"/>
+    </resultMap>
+    <select id="selectById" parameterType="String" resultType="Date">
+        select login_time from sys_login_time where user_id=#{userId} order by id DESC limit 1,1;
+    </select>
+    <insert id="insertDate" parameterType="LoginTimeDomain">
+        insert into sys_login_time (user_id, login_time) values (#{userId},#{loginTime})
+    </insert>
+</mapper>

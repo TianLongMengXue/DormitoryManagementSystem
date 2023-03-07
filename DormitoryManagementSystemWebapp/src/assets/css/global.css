@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/*
+* Filename: global.css
+* Description: 全局样式配置
+* Version: 1.0
+* Created: 2020-04-01 23:19 星期三
+* Revision: none
+* Compiler: none
+* Author: DreamSnow·Draco
+* Company: none
+* */
+/*去除各个标签默认存在的 内边距和外边距*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /*CSS3盒子模型属性 解决之前设定盒子的width和height值需要计算pdding和margin值的CSS2盒子模型特性*/
+    /*box-sizing: border-box;*/
+}
+/* html,body,#app默认占满全屏 */
+html,body,#app{
+    height: 100%;
+}
+
+body{
+    /*设置整个页面的字体大小和对应的行高 默认的字体*/
+    font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif;
+}
+
+/*去除表格标签的默认样式*/
+li{
+    list-style: none;
+}
+
+/*去除链接标签的默认下划线*/
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+/*设置图片标签引入的图片顶对齐*/
+img{
+    border: 0;
+    vertical-align: top;
+}
+
+/*去除文字类修饰标签的默认样式*/
+strong, b, em, i, del, s, ins, u{
+    font-style: normal;
+}
+
+/*设置按钮为手型点击*/
+button{
+    cursor:pointer;
+}
+
+button,input{
+    font-family:"Microsoft YaHei","Heiti SC","tahoma,arial","Hiragino Sans GB","\\5B8B\4F53","sans-serif";
+    outline: none;
+}

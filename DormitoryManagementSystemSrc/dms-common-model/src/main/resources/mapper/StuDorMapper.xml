@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.StuDorMapper">
+    <resultMap id="sd" type="StuDorDomain">
+        <result property="userId" column="user_id"/>
+        <result property="dorId" column="dor_id"/>
+        <result property="bedNum" column="bed_num"/>
+    </resultMap>
+    <select id="selectByUserId" resultMap="sd" parameterType="String">
+        select * from ctrl_stu_dor where user_id=#{userId}
+    </select>
+    <insert id="insertRelation" parameterType="StuDorDomain">
+        insert into ctrl_stu_dor values (#{userId},#{dorId},#{bedNum})
+    </insert>
+</mapper>

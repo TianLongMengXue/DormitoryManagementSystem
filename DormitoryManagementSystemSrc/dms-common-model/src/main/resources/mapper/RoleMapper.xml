@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.RoleMapper">
+    <resultMap id="roleDomain" type="RoleDomain">
+        <result property="roleId" column="role_id"/>
+        <result property="roleName" column="role_name"/>
+    </resultMap>
+    <select id="selectNameById" parameterType="String" resultMap="roleDomain">
+        select * from sys_role where role_id=#{roleId}
+    </select>
+    <update id="updateById" parameterType="RoleDomain">
+        update sys_role set role_name=#{roleName} where role_id=#{roleId}
+    </update>
+    <insert id="insertRole" parameterType="RoleDomain">
+        insert into sys_role values (#{roleId},#{roleName})
+    </insert>
+    <delete id="deleteById" parameterType="String">
+        delete from sys_role where role_id=#{roleId}
+    </delete>
+</mapper>

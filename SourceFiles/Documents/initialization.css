@@ -1,0 +1,101 @@
+/*去除各个标签默认存在的 内边距和外边距*/
+*{
+	margin: 0 auto;
+	padding: 0;
+	/*CSS3盒子模型属性 解决之前设定盒子的width和height值需要计算pdding和margin值的CSS2盒子模型特性*/
+	/*box-sizing: border-box;*/
+}
+
+body{
+	/*设置整个页面的字体大小和对应的行高 默认的字体*/
+	font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif;
+}
+
+/*去除表格标签的默认样式*/
+li{
+	list-style: none;
+}
+
+/*去除链接标签的默认下划线*/
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+/*设置图片标签引入的图片顶对齐*/
+img{
+	border: 0;
+	vertical-align: top;
+}
+
+/*去除文字类修饰标签的默认样式*/
+strong, b, em, i, del, s, ins, u{
+	font-style: normal;
+}
+
+/*设置按钮为手型点击*/
+button{
+	cursor:pointer;
+}
+
+button,input{
+	font-family:"Microsoft YaHei","Heiti SC","tahoma,arial","Hiragino Sans GB","\\5B8B\4F53","sans-serif";
+	outline: none;
+}
+
+/*引入文字->图片*/
+@font-face{
+	font-family: "icomoon";
+	src: url('../fonts/icomoon.eot?7kkyc2');
+	src: url('../fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+		 url('../fonts/icomoon.ttf?7kkyc2') format('truetype'),
+		 url('../fonts/icomoon.woff?7kkyc2') format('woff'),
+		 url('../fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+	font-style: normal;
+	font-weight: normal;
+}
+
+/*定义自定义字体类*/
+.style-family{
+	font-family: "icomoon"!important;
+}
+
+/*设置隐藏*/
+.hide, .none{
+	display:none;
+}
+
+/*清除浮动*/
+.clearfix:after{
+	visibility:hidden;
+	clear:both;
+	display:block;
+	content:"";
+	height:0;
+}
+/*设置IE游览器的属性*/
+.clearfix{
+	*zoom:1;
+}
+
+/*自定义背景色*/
+.style-bgcolor{
+	/*设置背景色 个人喜好*/
+	background-color:#e3e4e5;/*rgb(227, 228, 229)*/
+}
+
+/*自定义字体色*/
+.style-color{
+	/*设置文字颜色 个人喜好*/
+	color: #f10215;/*rgb(241, 2, 21)*/
+}
+
+/*自定义左浮动*/
+.style-left{
+	float: left;
+}
+
+/*自定义右浮动*/
+.style-right{
+	float: right;
+}

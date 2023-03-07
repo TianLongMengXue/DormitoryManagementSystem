@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.CheckClassMapper">
+    <resultMap id="checkClass" type="CheckClassDomain">
+        <result property="articleId" column="article_id"/>
+        <result property="classHead" column="class_head"/>
+        <result property="className" column="class_name"/>
+        <result property="dorCount" column="dor_count"/>
+        <result property="checkCount" column="check_count"/>
+        <result property="goodCount" column="good_count"/>
+        <result property="goodScore" column="good_score"/>
+        <result property="badCount" column="bad_count"/>
+        <result property="badScore" column="bad_score"/>
+        <result property="bedCount" column="bed_count"/>
+        <result property="bedScore" column="bed_score"/>
+        <result property="nightCount" column="night_count"/>
+        <result property="nightScore" column="night_score"/>
+        <result property="banCount" column="ban_count"/>
+        <result property="banScore" column="ban_score"/>
+        <result property="criticizeCount" column="criticize_count"/>
+        <result property="criticizeScore" column="criticize_score"/>
+        <result property="praiseCount" column="praise_count"/>
+        <result property="praiseScore" column="praise_score"/>
+        <result property="finalScore" column="final_score"/>
+    </resultMap>
+    <select id="selectById" parameterType="String" resultMap="checkClass">
+        select * from result_check_class where article_id=#{articleId}
+    </select>
+    <insert id="insertRecord" parameterType="CivilDomain">
+        insert into result_check_class values
+        (#{id},#{articleId},#{classHead},#{className},#{dorCount},#{checkCount},#{goodCount},#{goodScore},#{badCount},#{badScore},#{bedCount},#{bedScore},#{nightCount},#{nightScore},#{banCount},#{banScore},#{criticizeCount},#{criticizeScore},#{praiseCount},#{praiseScore},#{finalScore})
+    </insert>
+</mapper>

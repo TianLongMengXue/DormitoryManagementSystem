@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.HomeArticleMapper">
+    <resultMap id="article" type="HomeArticleDomain">
+        <result property="articleId" column="article_id"/>
+        <result property="collegeId" column="college_id"/>
+        <result property="menuId" column="menu_id"/>
+        <result property="articleTime" column="article_time"/>
+        <result property="checkTime" column="check_time"/>
+        <result property="articleTitle" column="article_title"/>
+        <result property="articleDesc" column="article_desc"/>
+        <result property="articlePost" column="article_post"/>
+        <result property="articleType" column="article_type"/>
+    </resultMap>
+    <select id="selectByMenuCollegeId" parameterType="map" resultMap="article">
+        select
+        article_id,college_id,menu_id,article_time,check_time,article_title,article_desc,article_post,article_type from
+        home_article
+        <where>
+            <if test="articleId != null">
+                and article_id=#{articleId}
+            </if>
+            <if test="collegeId != null">
+                and college_id=#{collegeId}
+            </if>
+            <if test="menuId != null">
+                and menu_id=#{menuId}
+            </if>
+        </where>
+        order by id desc limit #{index},#{total}
+    </select>
+    <select id="selectOneByMenuCollegeId" parameterType="map" resultMap="article">
+        select
+        article_id,college_id,menu_id,article_time,check_time,article_title,article_desc,article_post,article_type from
+        home_article
+        <where>
+            <if test="articleId != null">
+                and article_id=#{articleId}
+            </if>
+            <if test="collegeId != null">
+                and college_id=#{collegeId}
+            </if>
+            <if test="menuId != null">
+                and menu_id=#{menuId}
+            </if>
+        </where>
+    </select>
+    <insert id="insertArticle" parameterType="HomeArticleDomain">
+        insert into home_article
+        (article_id,college_id,menu_id,article_time,check_time,article_title,article_desc,article_post,article_type)
+        values
+        (#{articleId},#{collegeId},#{menuId},#{articleTime},#{checkTime},#{articleTitle},#{articleDesc},#{articlePost},#{articleType})
+    </insert>
+    <update id="updateArticle" parameterType="map">
+        update home_article
+        <set>
+            <if test="articleTime != null">article_time=#{articleTime},</if>
+            <if test="checkTime != null">check_time=#{checkTime},</if>
+            <if test="articleTitle != null">article_title=#{articleTitle},</if>
+            <if test="articleDesc != null">article_desc=#{articleDesc},</if>
+            <if test="articlePost != null">article_post=#{articlePost},</if>
+            <if test="menuId != null">menu_id=#{menuId},</if>
+            <if test="articleType != null">article_type=#{articleType},</if>
+        </set>
+        where article_id=#{articleId}
+    </update>
+    <delete id="deleteArticleById" parameterType="String">
+        delete from home_article where article_id=#{articleId}
+    </delete>
+    <select id="countRows" parameterType="map" resultType="long">
+        select count(*) from home_article
+        <where>
+            <if test="articleId != null">
+                and article_id=#{articleId}
+            </if>
+            <if test="collegeId != null">
+                and college_id=#{collegeId}
+            </if>
+            <if test="menuId != null">
+                and menu_id=#{menuId}
+            </if>
+        </where>
+    </select>
+</mapper>

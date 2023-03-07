@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/dms-ctrl/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/dms-common-controller/pom.xml" />
+        <option value="$PROJECT_DIR$/dms-common-mapper/pom.xml" />
+        <option value="$PROJECT_DIR$/dms-common-pojo/pom.xml" />
+        <option value="$PROJECT_DIR$/dms-common-service/pom.xml" />
+        <option value="$PROJECT_DIR$/dms-common-shiro/pom.xml" />
+        <option value="$PROJECT_DIR$/dms-error/pom.xml" />
+        <option value="$PROJECT_DIR$/dms-login/pom.xml" />
+        <option value="$PROJECT_DIR$/dms-pojo/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ScalaSbtSettings">
+    <option name="customVMPath" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+  </component>
+</project>

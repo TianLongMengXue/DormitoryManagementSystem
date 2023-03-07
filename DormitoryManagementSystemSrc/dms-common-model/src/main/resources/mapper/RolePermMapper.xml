@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.RolePermMapper">
+    <select id="selectPermIdByRoleId" parameterType="String" resultType="String">
+        select perm_id from sys_role_perm where role_id=#{roleId}
+    </select>
+    <select id="selectRoleIdByPermId" parameterType="String" resultType="ArrayList">
+        select role_id from sys_role_perm where perm_id=#{permId}
+    </select>
+    <insert id="insertRelation" parameterType="map">
+        insert into sys_role_perm values (#{id},#{roleId},#{permId})
+    </insert>
+    <delete id="deleteRelation" parameterType="String">
+        delete from sys_role_perm values (#{roleId})
+    </delete>
+</mapper>

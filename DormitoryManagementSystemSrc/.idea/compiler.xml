@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dms-common" />
+        <module name="dms-common-model" />
+        <module name="dms-common-shiro" />
+        <module name="dms-ctrl" />
+        <module name="dms-home" />
+        <module name="dms-system" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dms-common" target="1.8" />
+      <module name="dms-common-controller" target="1.8" />
+      <module name="dms-common-mapper" target="1.8" />
+      <module name="dms-common-model" target="1.8" />
+      <module name="dms-common-pojo" target="1.8" />
+      <module name="dms-common-service" target="1.8" />
+      <module name="dms-common-shiro" target="1.8" />
+      <module name="dms-ctrl" target="1.8" />
+      <module name="dms-error" target="1.8" />
+      <module name="dms-home" target="1.8" />
+      <module name="dms-login" target="1.8" />
+      <module name="dms-pojo" target="1.8" />
+      <module name="dms-system" target="1.5" />
+      <module name="DormitoryManagementSystem" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="DormitoryManagementSystem" options="" />
+      <module name="dms-common" options="-parameters" />
+      <module name="dms-common-controller" options="-parameters" />
+      <module name="dms-common-mapper" options="-parameters" />
+      <module name="dms-common-model" options="-parameters" />
+      <module name="dms-common-pojo" options="-parameters" />
+      <module name="dms-common-service" options="-parameters" />
+      <module name="dms-common-shiro" options="-parameters" />
+      <module name="dms-ctrl" options="-parameters" />
+      <module name="dms-error" options="-parameters" />
+      <module name="dms-home" options="-parameters" />
+      <module name="dms-login" options="-parameters" />
+      <module name="dms-pojo" options="-parameters" />
+      <module name="dms-system" options="-parameters" />
+    </option>
+  </component>
+</project>

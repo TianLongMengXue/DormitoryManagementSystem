@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.HomeIntroduceMapper">
+    <resultMap id="introduce" type="HomeIntroduceDomain">
+        <result property="menuId" column="menu_id" />
+        <result property="title" column="title" />
+        <result property="subTitle" column="sub_title" />
+        <result property="subImg" column="sub_img" />
+        <result property="qin" column="qin" />
+        <result property="qinImg" column="qin_img" />
+        <result property="mi" column="mi" />
+        <result property="miImg" column="mi_img" />
+        <result property="kao" column="kao" />
+        <result property="kaoImg" column="kao_img" />
+    </resultMap>
+    <select id="select" resultMap="introduce">
+        select * from home_introduce
+    </select>
+    <insert id="insert" parameterType="HomeIntroduceDomain">
+        insert into home_introduce values (#{menuId},#{title},#{subTitle},#{subImg},#{qin},#{qinImg},#{mi},#{miImg},#{kao},#{kaoImg})
+    </insert>
+    <update id="update" parameterType="map">
+        update home_introduce
+        <set>
+            <if test="title != null">title=#{title}</if>
+            <if test="subTitle != null">sub_title=#{subTitle}</if>
+            <if test="subImg != null">sub_img=#{subImg}</if>
+            <if test="qin != null">qin=#{qin}</if>
+            <if test="qinImg != null">qin_img=#{qinImg}</if>
+            <if test="mi != null">mi=#{mi}</if>
+            <if test="miImg != null">mi_img=#{miImg}</if>
+            <if test="kao != null">kao=#{kao}</if>
+            <if test="kaoImg != null">kao_img=#{kaoImg}</if>
+        </set>
+    </update>
+</mapper>

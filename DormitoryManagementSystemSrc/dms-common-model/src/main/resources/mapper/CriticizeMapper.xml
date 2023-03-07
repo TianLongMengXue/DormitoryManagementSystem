@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.e3e4e20.model.mapper.CriticizeMapper">
+    <resultMap id="criticize" type="CriticizeDomain">
+        <result property="articleId" column="article_id"/>
+        <result property="checkTime" column="check_time"/>
+        <result property="className" column="class_name"/>
+        <result property="userName" column="user_name"/>
+    </resultMap>
+    <select id="selectById" parameterType="String" resultMap="criticize">
+        select * from result_criticize where article_id=#{articleId}
+    </select>
+    <insert id="insertRecord" parameterType="CriticizeDomain">
+        insert into result_criticize values (#{id},#{articleId},#{checkTime},#{className},#{userName})
+    </insert>
+</mapper>
